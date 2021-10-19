@@ -34,17 +34,17 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - name: http
-              containerPort: 80
-              protocol: TCP
+            - name: {{ .Values.image.port.name }}
+              containerPort: {{ .Values.image.port.containerPort }}
+              protocol: {{ .Values.image.port.protocol }}
           livenessProbe:
             httpGet:
-              path: /
-              port: http
+              path: {{ .Values.image.livenessProbe.path }}
+              port: {{ .Values.image.livenessProbe.port }}
           readinessProbe:
             httpGet:
-              path: /
-              port: http
+              path: {{ .Values.image.readinessProbe.path }}
+              port: {{ .Values.image.readinessProbe.port }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

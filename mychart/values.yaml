@@ -9,6 +9,16 @@ image:
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "v01"
+  port:
+    name: http-8081
+    containerPort: 8081
+    protocol: TCP
+  livenessProbe:
+    path: /liveOK
+    port: 8081
+  readinessProbe:
+    path: /readyOK
+    port: 8081
 
 imagePullSecrets: []
 nameOverride: ""
