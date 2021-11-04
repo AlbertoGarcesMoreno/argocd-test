@@ -15,4 +15,4 @@ spec:
         auth:
           password: secretpassword
     path: bitnami/redis
-    repoURL: 'https://charts.bitnami.com/bitnami'
+    repoURL: 'https://charts.bitnami.com'
