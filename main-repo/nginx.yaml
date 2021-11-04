@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx
+  namespace: argocd
+spec:
+  destination:
+    namespace: test-main-repo
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    helm:
+      values: |
+        podAnnotations:
+          a: b
+    path: bitnami/nginx
+    repoURL: 'https://github.com/bitnami/charts.git'
