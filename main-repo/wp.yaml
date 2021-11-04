@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wordpress
+  namespace: argocd
+spec:
+  destination:
+    namespace: test-main-repo
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    helm:
+      values: |
+        wordpressUsername: user
+        wordpressPassword: ""
+
+    path: bitnami/wordpress
+    repoURL: 'https://github.com/bitnami/charts.git'
