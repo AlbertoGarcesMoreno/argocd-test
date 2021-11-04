@@ -13,6 +13,7 @@ spec:
       values: |
         wordpressUsername: user
         wordpressPassword: ""
-
+        persistence:
+          enabled: true
     path: bitnami/wordpress
     repoURL: 'https://github.com/bitnami/charts.git'
