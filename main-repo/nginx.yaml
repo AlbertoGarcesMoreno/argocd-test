@@ -15,3 +15,6 @@ spec:
           a: b
     path: bitnami/nginx
     repoURL: 'https://github.com/bitnami/charts.git'
+syncPolicy:
+  automated:
+    prune: true
